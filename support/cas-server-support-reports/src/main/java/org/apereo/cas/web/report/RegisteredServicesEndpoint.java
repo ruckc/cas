@@ -38,7 +38,7 @@ public class RegisteredServicesEndpoint extends BaseCasMvcEndpoint {
      * @return the web async task
      */
     @ReadOperation
-    public Collection<RegisteredService> handle() {
+    public Collection<? extends RegisteredService> handle() {
         return this.servicesManager.getAllServices();
     }
 }

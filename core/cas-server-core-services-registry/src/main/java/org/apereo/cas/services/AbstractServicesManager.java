@@ -64,7 +64,7 @@ public abstract class AbstractServicesManager implements ServicesManager, Initia
     }
 
     @Override
-    public Collection<RegisteredService> findServiceBy(final Predicate<RegisteredService> predicate) {
+    public Collection<? extends RegisteredService> findServiceBy(final Predicate<RegisteredService> predicate) {
         if (predicate == null) {
             return new ArrayList<>(0);
         }
@@ -222,7 +222,7 @@ public abstract class AbstractServicesManager implements ServicesManager, Initia
     private void evaluateExpiredServiceDefinitions() {
         this.services.values()
             .stream()
-            .filter(getRegisteredServicesFilteringPredicate().negate())
+            .filter((Predicate<RegisteredService>) getRegisteredServicesFilteringPredicate().negate())
             .filter(Objects::nonNull)
             .forEach(this::processExpiredRegisteredService);
     }

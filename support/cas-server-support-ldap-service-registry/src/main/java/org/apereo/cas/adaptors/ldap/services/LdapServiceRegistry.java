@@ -148,7 +148,7 @@ public class LdapServiceRegistry extends AbstractServiceRegistry {
     }
 
     @Override
-    public List<RegisteredService> load() {
+    public List<? extends RegisteredService> load() {
         val list = new ArrayList<RegisteredService>();
         try {
             val response = getSearchResultResponse();

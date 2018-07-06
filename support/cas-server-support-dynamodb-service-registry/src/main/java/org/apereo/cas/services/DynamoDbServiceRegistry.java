@@ -29,7 +29,7 @@ public class DynamoDbServiceRegistry extends AbstractServiceRegistry {
     }
 
     @Override
-    public List<RegisteredService> load() {
+    public List<? extends RegisteredService> load() {
         val svc = dbTableService.getAll();
         svc.forEach(s -> publishEvent(new CasRegisteredServiceLoadedEvent(this, s)));
         return svc;

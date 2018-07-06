@@ -15,7 +15,7 @@ public class CasRegisteredServicesLoadedEvent extends BaseCasRegisteredServiceEv
 
     private static final long serialVersionUID = 291168299712263298L;
 
-    private final Collection<RegisteredService> services;
+    private final Collection<? extends RegisteredService> services;
 
     /**
      * Instantiates a new cas sso event.
@@ -23,12 +23,12 @@ public class CasRegisteredServicesLoadedEvent extends BaseCasRegisteredServiceEv
      * @param source   the source
      * @param services collection of loaded services
      */
-    public CasRegisteredServicesLoadedEvent(final Object source, final Collection<RegisteredService> services) {
+    public CasRegisteredServicesLoadedEvent(final Object source, final Collection<? extends RegisteredService> services) {
         super(source);
         this.services = services;
     }
 
-    public Collection<RegisteredService> getServices() {
+    public Collection<? extends RegisteredService> getServices() {
         return services;
     }
 }

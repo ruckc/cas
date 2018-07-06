@@ -77,7 +77,7 @@ public interface ServicesManager {
      * @param clazz the clazz
      * @return the collection of services that matches the supplied type
      */
-    Collection<RegisteredService> findServiceBy(Predicate<RegisteredService> clazz);
+    Collection<? extends RegisteredService> findServiceBy(Predicate<RegisteredService> clazz);
 
     /**
      * Find service by type.

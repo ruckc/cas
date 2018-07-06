@@ -86,7 +86,7 @@ public class CosmosDbServiceRegistry extends AbstractServiceRegistry {
     }
 
     @Override
-    public List<RegisteredService> load() {
+    public List<? extends RegisteredService> load() {
         val query = String.format("SELECT * FROM %s c", this.collectionName);
         val results = queryDocuments(query);
         val it = results.getQueryIterator();
